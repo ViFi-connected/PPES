@@ -33,9 +33,11 @@ namespace DCV_3
             this.btnOk = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxColumns = new System.Windows.Forms.TextBox();
-            this.textBoxRows = new System.Windows.Forms.TextBox();
+            this.numericUpDownColumns = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownRows = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownColumns)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRows)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -48,8 +50,8 @@ namespace DCV_3
             this.tableLayoutPanel1.Controls.Add(this.btnOk, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxColumns, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxRows, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.numericUpDownColumns, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.numericUpDownRows, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
@@ -93,21 +95,23 @@ namespace DCV_3
             this.label2.Text = "Rows";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBoxColumns
+            // numericUpDownColumns
             // 
-            this.textBoxColumns.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxColumns.Location = new System.Drawing.Point(10, 32);
-            this.textBoxColumns.Name = "textBoxColumns";
-            this.textBoxColumns.Size = new System.Drawing.Size(40, 23);
-            this.textBoxColumns.TabIndex = 5;
+            this.numericUpDownColumns.AutoSize = true;
+            this.numericUpDownColumns.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numericUpDownColumns.Location = new System.Drawing.Point(3, 32);
+            this.numericUpDownColumns.Name = "numericUpDownColumns";
+            this.numericUpDownColumns.Size = new System.Drawing.Size(55, 23);
+            this.numericUpDownColumns.TabIndex = 5;
             // 
-            // textBoxRows
+            // numericUpDownRows
             // 
-            this.textBoxRows.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxRows.Location = new System.Drawing.Point(71, 32);
-            this.textBoxRows.Name = "textBoxRows";
-            this.textBoxRows.Size = new System.Drawing.Size(40, 23);
-            this.textBoxRows.TabIndex = 6;
+            this.numericUpDownRows.AutoSize = true;
+            this.numericUpDownRows.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numericUpDownRows.Location = new System.Drawing.Point(64, 32);
+            this.numericUpDownRows.Name = "numericUpDownRows";
+            this.numericUpDownRows.Size = new System.Drawing.Size(55, 23);
+            this.numericUpDownRows.TabIndex = 6;
             // 
             // SetSize
             // 
@@ -128,6 +132,8 @@ namespace DCV_3
             this.TopMost = true;
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownColumns)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRows)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,7 +145,7 @@ namespace DCV_3
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxColumns;
-        private System.Windows.Forms.TextBox textBoxRows;
+        private System.Windows.Forms.NumericUpDown numericUpDownColumns;
+        private System.Windows.Forms.NumericUpDown numericUpDownRows;
     }
 }

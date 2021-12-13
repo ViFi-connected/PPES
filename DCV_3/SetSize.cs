@@ -22,14 +22,14 @@ namespace DCV_3
             columns = parent.columns;
             rows = parent.rows;
 
-            textBoxColumns.Text = columns.ToString();
-            textBoxRows.Text = rows.ToString();
+            numericUpDownColumns.Value = columns;
+            numericUpDownRows.Value = rows;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            columns = int.Parse(textBoxColumns.Text);
-            rows = int.Parse(textBoxRows.Text);
+            columns = int.Parse(numericUpDownColumns.Text);
+            rows = int.Parse(numericUpDownRows.Text);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
