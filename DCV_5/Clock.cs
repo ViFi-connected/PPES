@@ -12,111 +12,130 @@ namespace DCV_5
 {
     public partial class Clock : Form
     {
-        Timer t = new Timer();
-        private static int DIAMETER, RADIUS, secHAND, minHAND, hrHAND;
-        // in center  
-        private static int cy, cx;
-        Bitmap bmp;
-        Graphics cg;
+        Timer t = new();
+        private static bool showSeconds = true, showAnalog = false;
+
+        Analog analogView = new();
+        Digital digitalView = new();
 
         public Clock()
         {
             InitializeComponent();
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            this.BackColor = Color.White;
+
+            tableLayoutPanel1.Controls.Add(analogView);
+            analogView.Dock = DockStyle.Fill;
+            tableLayoutPanel1.SetColumnSpan(analogView, 2);
 
             t.Interval = 1000;
-            t.Tick += new EventHandler(this.t_Tick);
-            t.Start();
+            t.Tick += new EventHandler(Draw);
+            t.Enabled = true;
+
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.DoubleBuffer, true);
         }
-        private void t_Tick(object sender, EventArgs e)
+
+        private void Draw(object o, EventArgs e)
         {
-            bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            // placing in center  
+            int width = analogView.pictureBox1.Width;
+            int height = analogView.pictureBox1.Height;
 
-            // create an image  
-            cg = Graphics.FromImage(bmp);
-            //get time  
-            int ss = DateTime.Now.Second;
-            int mm = DateTime.Now.Minute;
-            int hh = DateTime.Now.Hour;
-            int[] handCoord = new int[2];
-            //get time  
-            cg.Clear(Color.White);
-            //draw a circle  
+            Bitmap bmp = new Bitmap(width, height);
 
-            DIAMETER = pictureBox1.Width > pictureBox1.Height ? (pictureBox1.Height - 6) : (pictureBox1.Width - 6);
-            RADIUS = DIAMETER / 2;
+            Graphics g = Graphics.FromImage(bmp);
+            g.Clear(BackColor);
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            Font f = new("Arial", 12, FontStyle.Bold);
 
-            cx = DIAMETER / 2;
-            cy = DIAMETER / 2;
-
-            cg.DrawEllipse(new Pen(Color.Black, 6f), 3, 3, DIAMETER, DIAMETER);
-            //draw clock numbers  
-            cg.DrawString("12", new Font("Ariel", 12), Brushes.Black, new PointF(cx, cy - RADIUS));
-            cg.DrawString("1", new Font("Ariel", 12), Brushes.Black, new PointF(218, 22));
-            cg.DrawString("2", new Font("Ariel", 12), Brushes.Black, new PointF(263, 70));
-            cg.DrawString("3", new Font("Ariel", 12), Brushes.Black, new PointF(285, 140));
-            cg.DrawString("4", new Font("Ariel", 12), Brushes.Black, new PointF(263, 212));
-            cg.DrawString("5", new Font("Ariel", 12), Brushes.Black, new PointF(218, 259));
-            cg.DrawString("6", new Font("Ariel", 12), Brushes.Black, new PointF(142, 279));
-            cg.DrawString("7", new Font("Ariel", 12), Brushes.Black, new PointF(70, 259));
-            cg.DrawString("8", new Font("Ariel", 12), Brushes.Black, new PointF(22, 212));
-            cg.DrawString("9", new Font("Ariel", 12), Brushes.Black, new PointF(1, 140));
-            cg.DrawString("10", new Font("Ariel", 12), Brushes.Black, new PointF(22, 70));
-            cg.DrawString("11", new Font("Ariel", 12), Brushes.Black, new PointF(70, 22));
-            //draw seconds hand  
-            handCoord = msCoord(ss, (int)((DIAMETER / 2) * 0.8));
-            cg.DrawLine(new Pen(Color.Red, 2f), new Point(cx, cy), new Point(handCoord[0], handCoord[1]));
-            //draw minutes hand  
-            handCoord = msCoord(mm, (int)((DIAMETER / 2) * 0.6));
-            cg.DrawLine(new Pen(Color.Black, 3f), new Point(cx, cy), new Point(handCoord[0], handCoord[1]));
-            //draw hours hand  
-            handCoord = hrCoord(hh % 12, mm, (int)((DIAMETER / 2) * 0.4));
-            cg.DrawLine(new Pen(Color.Black, 3f), new Point(cx, cy), new Point(handCoord[0], handCoord[1]));
-            //load the bitmap image  
-            pictureBox1.Image = bmp;
-            //display time in the heading  
-            this.Text = "Analog Clock - " + hh + ":" + mm + ":" + ss;
-            pictureBox1.Refresh();
-            cg.Dispose();
-        }
-        //coord for minute and second  
-        private int[] msCoord(int val, int hlen)
-        {
-            int[] coord = new int[2];
-            val *= 6; // note: each minute and seconds make a 6 degree  
-            if (val >= 0 && val <= 100)
+            int diameter, radius;
+            
+            if (width > height)
             {
-                coord[0] = cx + (int)(hlen * Math.Sin(Math.PI * val / 180));
-                coord[1] = cy - (int)(hlen * Math.Cos(Math.PI * val / 180));
+                diameter = height - 20;
+                radius = diameter / 2;
             }
             else
             {
-                coord[0] = cx - (int)(hlen * -Math.Sin(Math.PI * val / 180));
-                coord[1] = cy - (int)(hlen * Math.Cos(Math.PI * val / 180));
+                diameter = width - 20;
+                radius = diameter / 2;
             }
-            return coord;
-        }
-        //coord for hour  
-        private int[] hrCoord(int hval, int mval, int hlen)
-        {
-            int[] coord = new int[2];
-            //each hour makes 60 degree with min making 0.5 degree  
-            int val = (int)((hval * 30) + (mval * 0.5));
-            if (val >= 0 && val <= 180)
+
+            g.DrawEllipse(Pens.Black, width / 2 - diameter / 2, height / 2 - diameter / 2, diameter, diameter);
+
+            double i_h = DateTime.Now.Hour + DateTime.Now.Minute / 60.0 + DateTime.Now.Second / 3600.0;
+            double i_min = DateTime.Now.Minute;
+            double i_sec = DateTime.Now.Second;
+
+            int x_sec = width / 2 + (int)(diameter / 3 * Math.Sin(2 * Math.PI * i_sec / 60));
+            int y_sec = height / 2 - (int)(diameter / 3 * Math.Cos(2 * Math.PI * i_sec / 60));
+            int x_min = width / 2 + (int)(0.8 * diameter / 3 * Math.Sin(2 * Math.PI * i_min / 60));
+            int y_min = height / 2 - (int)(0.8 * diameter / 3 * Math.Cos(2 * Math.PI * i_min / 60));
+            int x_h = width / 2 + (int)(0.5 * diameter / 3 * Math.Sin(2 * Math.PI * i_h / 12));
+            int y_h = height / 2 - (int)(0.5 * diameter / 3 * Math.Cos(2 * Math.PI * i_h / 12));
+
+            if (showSeconds)
             {
-                coord[0] = cx + (int)(hlen * Math.Sin(Math.PI * val / 180));
-                coord[1] = cy - (int)(hlen * Math.Cos(Math.PI * val / 180));
+                g.DrawLine(new Pen(Color.Black, 2), width / 2, height / 2, x_sec, y_sec);
+            }
+            
+            g.DrawLine(new Pen(Color.Black, 3), width / 2, height / 2, x_min, y_min);
+            g.DrawLine(new Pen(Color.Black, 4), width / 2, height / 2, x_h, y_h);
+            this.Text = "Clock " + DateTime.Now.ToLongTimeString();
+
+            for (int j = 1; j <= 12; j++)
+            {
+                g.DrawString("" + j, f, Brushes.Black,
+                  width / 2 + (int)((radius - 20) * Math.Sin(j * Math.PI / 6))
+                  - (int)g.MeasureString("" + j, f).Width / 2,
+                  height / 2 - (int)((radius - 20) * Math.Cos(j * Math.PI / 6))
+                  - (int)g.MeasureString("" + j, f).Height / 2);
+            }
+            analogView.pictureBox1.Image = bmp;
+            digitalView.textBox1.Text = DateTime.Now.ToLongTimeString();
+           
+            g.Dispose();
+        }
+
+        private void btnToggleSec_Click(object sender, EventArgs e)
+        {
+            if (showSeconds)
+            {
+                showSeconds = false;
+                btnToggleSec.Text = "Show Seconds";
             }
             else
             {
-                coord[0] = cx - (int)(hlen * -Math.Sin(Math.PI * val / 180));
-                coord[1] = cy - (int)(hlen * Math.Cos(Math.PI * val / 180));
+                showSeconds = true;
+                btnToggleSec.Text = "Hide Seconds";
             }
-            return coord;
+            Draw(null, null);
+        }
+
+        private void btnToggleType_Click(object sender, EventArgs e)
+        {
+            
+            if (showAnalog)
+            {
+                tableLayoutPanel1.Controls.Remove(digitalView);
+                tableLayoutPanel1.Controls.Add(analogView);
+                analogView.Dock = DockStyle.Fill;
+                tableLayoutPanel1.SetColumnSpan(analogView, 2);
+                btnToggleSec.Visible = true;
+
+                showAnalog = false;
+                btnToggleType.Text = "Digital";
+            }
+            else
+            {
+                tableLayoutPanel1.Controls.Remove(analogView);
+                tableLayoutPanel1.Controls.Add(digitalView);
+                digitalView.Dock = DockStyle.Fill;
+                tableLayoutPanel1.SetColumnSpan(digitalView, 2);
+                btnToggleSec.Visible = false;
+
+                showAnalog = true;
+                btnToggleType.Text = "Analog";
+            }
         }
     }
 }
