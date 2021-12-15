@@ -55,10 +55,11 @@ namespace DCV_1
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(310, 46);
+            this.textBox1.Size = new System.Drawing.Size(334, 46);
             this.textBox1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -87,7 +88,8 @@ namespace DCV_1
             this.tableLayoutPanel1.Controls.Add(this.clear, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.backspace, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.toggle, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 64);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 46);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -95,17 +97,17 @@ namespace DCV_1
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(310, 335);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(334, 365);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // result
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.result, 2);
             this.result.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.result.Location = new System.Drawing.Point(157, 283);
+            this.result.Location = new System.Drawing.Point(169, 307);
             this.result.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.result.Name = "result";
-            this.result.Size = new System.Drawing.Size(150, 37);
+            this.result.Size = new System.Drawing.Size(162, 43);
             this.result.TabIndex = 18;
             this.result.Text = "=";
             this.result.UseVisualStyleBackColor = true;
@@ -114,10 +116,10 @@ namespace DCV_1
             // b0
             // 
             this.b0.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.b0.Location = new System.Drawing.Point(80, 283);
+            this.b0.Location = new System.Drawing.Point(86, 307);
             this.b0.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.b0.Name = "b0";
-            this.b0.Size = new System.Drawing.Size(71, 37);
+            this.b0.Size = new System.Drawing.Size(77, 43);
             this.b0.TabIndex = 17;
             this.b0.Text = "0";
             this.b0.UseVisualStyleBackColor = true;
@@ -126,10 +128,10 @@ namespace DCV_1
             // point
             // 
             this.point.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.point.Location = new System.Drawing.Point(3, 283);
+            this.point.Location = new System.Drawing.Point(3, 307);
             this.point.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.point.Name = "point";
-            this.point.Size = new System.Drawing.Size(71, 37);
+            this.point.Size = new System.Drawing.Size(77, 43);
             this.point.TabIndex = 16;
             this.point.Text = ".";
             this.point.UseVisualStyleBackColor = true;
@@ -138,10 +140,10 @@ namespace DCV_1
             // div
             // 
             this.div.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.div.Location = new System.Drawing.Point(234, 216);
+            this.div.Location = new System.Drawing.Point(252, 234);
             this.div.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.div.Name = "div";
-            this.div.Size = new System.Drawing.Size(73, 37);
+            this.div.Size = new System.Drawing.Size(79, 43);
             this.div.TabIndex = 15;
             this.div.Text = "/";
             this.div.UseVisualStyleBackColor = true;
@@ -150,10 +152,10 @@ namespace DCV_1
             // b9
             // 
             this.b9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.b9.Location = new System.Drawing.Point(157, 216);
+            this.b9.Location = new System.Drawing.Point(169, 234);
             this.b9.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.b9.Name = "b9";
-            this.b9.Size = new System.Drawing.Size(71, 37);
+            this.b9.Size = new System.Drawing.Size(77, 43);
             this.b9.TabIndex = 14;
             this.b9.Text = "9";
             this.b9.UseVisualStyleBackColor = true;
@@ -162,10 +164,10 @@ namespace DCV_1
             // b8
             // 
             this.b8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.b8.Location = new System.Drawing.Point(80, 216);
+            this.b8.Location = new System.Drawing.Point(86, 234);
             this.b8.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.b8.Name = "b8";
-            this.b8.Size = new System.Drawing.Size(71, 37);
+            this.b8.Size = new System.Drawing.Size(77, 43);
             this.b8.TabIndex = 13;
             this.b8.Text = "8";
             this.b8.UseVisualStyleBackColor = true;
@@ -174,10 +176,10 @@ namespace DCV_1
             // b7
             // 
             this.b7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.b7.Location = new System.Drawing.Point(3, 216);
+            this.b7.Location = new System.Drawing.Point(3, 234);
             this.b7.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.b7.Name = "b7";
-            this.b7.Size = new System.Drawing.Size(71, 37);
+            this.b7.Size = new System.Drawing.Size(77, 43);
             this.b7.TabIndex = 12;
             this.b7.Text = "7";
             this.b7.UseVisualStyleBackColor = true;
@@ -186,10 +188,10 @@ namespace DCV_1
             // mul
             // 
             this.mul.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mul.Location = new System.Drawing.Point(234, 149);
+            this.mul.Location = new System.Drawing.Point(252, 161);
             this.mul.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.mul.Name = "mul";
-            this.mul.Size = new System.Drawing.Size(73, 37);
+            this.mul.Size = new System.Drawing.Size(79, 43);
             this.mul.TabIndex = 11;
             this.mul.Text = "*";
             this.mul.UseVisualStyleBackColor = true;
@@ -198,10 +200,10 @@ namespace DCV_1
             // b6
             // 
             this.b6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.b6.Location = new System.Drawing.Point(157, 149);
+            this.b6.Location = new System.Drawing.Point(169, 161);
             this.b6.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.b6.Name = "b6";
-            this.b6.Size = new System.Drawing.Size(71, 37);
+            this.b6.Size = new System.Drawing.Size(77, 43);
             this.b6.TabIndex = 10;
             this.b6.Text = "6";
             this.b6.UseVisualStyleBackColor = true;
@@ -210,10 +212,10 @@ namespace DCV_1
             // b5
             // 
             this.b5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.b5.Location = new System.Drawing.Point(80, 149);
+            this.b5.Location = new System.Drawing.Point(86, 161);
             this.b5.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.b5.Name = "b5";
-            this.b5.Size = new System.Drawing.Size(71, 37);
+            this.b5.Size = new System.Drawing.Size(77, 43);
             this.b5.TabIndex = 9;
             this.b5.Text = "5";
             this.b5.UseVisualStyleBackColor = true;
@@ -222,10 +224,10 @@ namespace DCV_1
             // b4
             // 
             this.b4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.b4.Location = new System.Drawing.Point(3, 149);
+            this.b4.Location = new System.Drawing.Point(3, 161);
             this.b4.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.b4.Name = "b4";
-            this.b4.Size = new System.Drawing.Size(71, 37);
+            this.b4.Size = new System.Drawing.Size(77, 43);
             this.b4.TabIndex = 8;
             this.b4.Text = "4";
             this.b4.UseVisualStyleBackColor = true;
@@ -234,10 +236,10 @@ namespace DCV_1
             // sub
             // 
             this.sub.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sub.Location = new System.Drawing.Point(234, 82);
+            this.sub.Location = new System.Drawing.Point(252, 88);
             this.sub.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.sub.Name = "sub";
-            this.sub.Size = new System.Drawing.Size(73, 37);
+            this.sub.Size = new System.Drawing.Size(79, 43);
             this.sub.TabIndex = 7;
             this.sub.Text = "-";
             this.sub.UseVisualStyleBackColor = true;
@@ -246,10 +248,10 @@ namespace DCV_1
             // b3
             // 
             this.b3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.b3.Location = new System.Drawing.Point(157, 82);
+            this.b3.Location = new System.Drawing.Point(169, 88);
             this.b3.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.b3.Name = "b3";
-            this.b3.Size = new System.Drawing.Size(71, 37);
+            this.b3.Size = new System.Drawing.Size(77, 43);
             this.b3.TabIndex = 6;
             this.b3.Text = "3";
             this.b3.UseVisualStyleBackColor = true;
@@ -258,10 +260,10 @@ namespace DCV_1
             // b2
             // 
             this.b2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.b2.Location = new System.Drawing.Point(80, 82);
+            this.b2.Location = new System.Drawing.Point(86, 88);
             this.b2.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.b2.Name = "b2";
-            this.b2.Size = new System.Drawing.Size(71, 37);
+            this.b2.Size = new System.Drawing.Size(77, 43);
             this.b2.TabIndex = 5;
             this.b2.Text = "2";
             this.b2.UseVisualStyleBackColor = true;
@@ -270,10 +272,10 @@ namespace DCV_1
             // b1
             // 
             this.b1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.b1.Location = new System.Drawing.Point(3, 82);
+            this.b1.Location = new System.Drawing.Point(3, 88);
             this.b1.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.b1.Name = "b1";
-            this.b1.Size = new System.Drawing.Size(71, 37);
+            this.b1.Size = new System.Drawing.Size(77, 43);
             this.b1.TabIndex = 4;
             this.b1.Text = "1";
             this.b1.UseVisualStyleBackColor = true;
@@ -282,10 +284,10 @@ namespace DCV_1
             // add
             // 
             this.add.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.add.Location = new System.Drawing.Point(234, 15);
+            this.add.Location = new System.Drawing.Point(252, 15);
             this.add.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.add.Name = "add";
-            this.add.Size = new System.Drawing.Size(73, 37);
+            this.add.Size = new System.Drawing.Size(79, 43);
             this.add.TabIndex = 3;
             this.add.Text = "+";
             this.add.UseVisualStyleBackColor = true;
@@ -294,10 +296,10 @@ namespace DCV_1
             // clear
             // 
             this.clear.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clear.Location = new System.Drawing.Point(157, 15);
+            this.clear.Location = new System.Drawing.Point(169, 15);
             this.clear.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.clear.Name = "clear";
-            this.clear.Size = new System.Drawing.Size(71, 37);
+            this.clear.Size = new System.Drawing.Size(77, 43);
             this.clear.TabIndex = 2;
             this.clear.Text = "C";
             this.clear.UseVisualStyleBackColor = true;
@@ -306,10 +308,10 @@ namespace DCV_1
             // backspace
             // 
             this.backspace.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backspace.Location = new System.Drawing.Point(80, 15);
+            this.backspace.Location = new System.Drawing.Point(86, 15);
             this.backspace.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.backspace.Name = "backspace";
-            this.backspace.Size = new System.Drawing.Size(71, 37);
+            this.backspace.Size = new System.Drawing.Size(77, 43);
             this.backspace.TabIndex = 1;
             this.backspace.Text = "<<";
             this.backspace.UseVisualStyleBackColor = true;
@@ -321,7 +323,7 @@ namespace DCV_1
             this.toggle.Location = new System.Drawing.Point(3, 15);
             this.toggle.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.toggle.Name = "toggle";
-            this.toggle.Size = new System.Drawing.Size(71, 37);
+            this.toggle.Size = new System.Drawing.Size(77, 43);
             this.toggle.TabIndex = 0;
             this.toggle.Text = "OFF";
             this.toggle.UseVisualStyleBackColor = true;
@@ -331,10 +333,13 @@ namespace DCV_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(334, 411);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.textBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Calculator";
+            this.ShowIcon = false;
             this.Text = "Calculator";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
