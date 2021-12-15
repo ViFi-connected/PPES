@@ -55,13 +55,13 @@ namespace DCV_2
 
         private void ParseInput()
         {
-            if (int.TryParse(textBoxInput.Text, out int input))
+            if (uint.TryParse(textBoxInput.Text, out uint input))
             {
                 Update(input);
             }
             else
             {
-                MessageBox.Show("Zadejte číslo v rozsahu od -2147483648 do 2147483647", "Chybný vstup", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Enter a number from 0 to 4 294 967 295", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -105,20 +105,21 @@ namespace DCV_2
 
         private void checkboxOnClick(object sender, EventArgs e)
         {
-            int cisloZBitu = 0;
+            uint cisloZBitu = 0;
+            uint bit = 1;
             for (int i = 0; i <= (numberOfBits - 1); i++)
             {
                 CheckBox box = flowLayoutPanel1.Controls[i] as CheckBox;
                 if (box.Checked)
-                    cisloZBitu |= 1 << (int)box.Tag;
+                    cisloZBitu |= bit << (int)box.Tag;
                 else
-                    cisloZBitu &= ~(1 << (int)box.Tag);
+                    cisloZBitu &= ~(bit << (int)box.Tag);
 
             }
             Update(cisloZBitu);
         }
 
-        private void Update(int value)
+        private void Update(uint value)
         {
             binary = ToBinary(value, numberOfBits);
             string binaryOutput = null;
@@ -135,7 +136,7 @@ namespace DCV_2
             textBoxBin.Text = binaryOutput;
         }
 
-        private static bool[] ToBinary(int input, short bits)
+        private static bool[] ToBinary(uint input, short bits)
         {
             bool[] binary = new bool[bits];
 
