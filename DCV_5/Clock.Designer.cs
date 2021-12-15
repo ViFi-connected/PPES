@@ -87,7 +87,6 @@ namespace DCV_5
             this.MinimumSize = new System.Drawing.Size(300, 300);
             this.Name = "Clock";
             this.ShowIcon = false;
-            this.TopMost = true;
             this.Resize += new System.EventHandler(this.DrawAnalog);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

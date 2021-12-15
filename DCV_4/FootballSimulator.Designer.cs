@@ -290,7 +290,6 @@ namespace DCV_4
             this.Name = "FootballSimulator";
             this.ShowIcon = false;
             this.Text = "Football League Simulator";
-            this.TopMost = true;
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
