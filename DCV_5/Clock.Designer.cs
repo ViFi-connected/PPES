@@ -88,7 +88,7 @@ namespace DCV_5
             this.Name = "Clock";
             this.ShowIcon = false;
             this.TopMost = true;
-            this.Resize += new System.EventHandler(this.Draw);
+            this.Resize += new System.EventHandler(this.DrawAnalog);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

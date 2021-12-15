@@ -27,15 +27,11 @@ namespace DCV_5
             tableLayoutPanel1.SetColumnSpan(analogView, 2);
 
             t.Interval = 1000;
-            t.Tick += new EventHandler(Draw);
+            t.Tick += new EventHandler(DrawAnalog);
             t.Enabled = true;
-
-            SetStyle(ControlStyles.UserPaint, true);
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-            SetStyle(ControlStyles.DoubleBuffer, true);
         }
 
-        private void Draw(object o, EventArgs e)
+        private void DrawAnalog(object o, EventArgs e)
         {
             int width = analogView.pictureBox1.Width;
             int height = analogView.pictureBox1.Height;
@@ -108,7 +104,7 @@ namespace DCV_5
                 showSeconds = true;
                 btnToggleSec.Text = "Hide Seconds";
             }
-            Draw(null, null);
+            DrawAnalog(null, null);
         }
 
         private void btnToggleType_Click(object sender, EventArgs e)
