@@ -37,8 +37,8 @@ namespace DCV_4
         #region Buttons
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            Teams = Loading.LoadTeams();
-            Matches = Loading.LoadMatches();
+            Teams = Loading.LoadTeams(this);
+            Matches = Loading.LoadMatches(this);
 
             dataGridViewTeams.DataSource = Teams;
             dataGridViewMatches.DataSource = Matches;
