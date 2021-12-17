@@ -36,13 +36,13 @@ namespace DCV_3
             this.logPanel = new System.Windows.Forms.Panel();
             this.logTextBox = new System.Windows.Forms.TextBox();
             this.btnPanel = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanelBtn = new System.Windows.Forms.TableLayoutPanel();
             this.btnSetColor = new System.Windows.Forms.Button();
             this.btnSetSize = new System.Windows.Forms.Button();
             this.boardPanel = new System.Windows.Forms.Panel();
             this.logPanel.SuspendLayout();
             this.btnPanel.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanelBtn.SuspendLayout();
             this.SuspendLayout();
             // 
             // logPanel
@@ -52,7 +52,7 @@ namespace DCV_3
             this.logPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.logPanel.Location = new System.Drawing.Point(0, 0);
             this.logPanel.Name = "logPanel";
-            this.logPanel.Size = new System.Drawing.Size(60, 450);
+            this.logPanel.Size = new System.Drawing.Size(60, 761);
             this.logPanel.TabIndex = 0;
             // 
             // logTextBox
@@ -63,37 +63,37 @@ namespace DCV_3
             this.logTextBox.Multiline = true;
             this.logTextBox.Name = "logTextBox";
             this.logTextBox.ReadOnly = true;
-            this.logTextBox.Size = new System.Drawing.Size(60, 450);
+            this.logTextBox.Size = new System.Drawing.Size(60, 761);
             this.logTextBox.TabIndex = 0;
             // 
             // btnPanel
             // 
             this.btnPanel.AutoSize = true;
             this.btnPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnPanel.Controls.Add(this.tableLayoutPanel1);
+            this.btnPanel.Controls.Add(this.tableLayoutPanelBtn);
             this.btnPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPanel.Location = new System.Drawing.Point(60, 0);
             this.btnPanel.Name = "btnPanel";
-            this.btnPanel.Size = new System.Drawing.Size(740, 34);
+            this.btnPanel.Size = new System.Drawing.Size(724, 34);
             this.btnPanel.TabIndex = 1;
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanelBtn
             // 
-            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.btnSetColor, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnSetSize, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(142, 31);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanelBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tableLayoutPanelBtn.AutoSize = true;
+            this.tableLayoutPanelBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanelBtn.ColumnCount = 2;
+            this.tableLayoutPanelBtn.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelBtn.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelBtn.Controls.Add(this.btnSetColor, 0, 0);
+            this.tableLayoutPanelBtn.Controls.Add(this.btnSetSize, 1, 0);
+            this.tableLayoutPanelBtn.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelBtn.Name = "tableLayoutPanelBtn";
+            this.tableLayoutPanelBtn.RowCount = 1;
+            this.tableLayoutPanelBtn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelBtn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelBtn.Size = new System.Drawing.Size(142, 31);
+            this.tableLayoutPanelBtn.TabIndex = 0;
             // 
             // btnSetColor
             // 
@@ -130,32 +130,30 @@ namespace DCV_3
             this.boardPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.boardPanel.Location = new System.Drawing.Point(60, 34);
             this.boardPanel.Name = "boardPanel";
-            this.boardPanel.Size = new System.Drawing.Size(740, 416);
+            this.boardPanel.Size = new System.Drawing.Size(724, 727);
             this.boardPanel.TabIndex = 2;
             // 
             // ChessBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 761);
             this.Controls.Add(this.boardPanel);
             this.Controls.Add(this.btnPanel);
             this.Controls.Add(this.logPanel);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.MaximizeBox = false;
             this.Name = "ChessBoard";
             this.ShowIcon = false;
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "ChessBoard";
             this.Load += new System.EventHandler(this.Form_Load);
             this.logPanel.ResumeLayout(false);
             this.logPanel.PerformLayout();
             this.btnPanel.ResumeLayout(false);
             this.btnPanel.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanelBtn.ResumeLayout(false);
+            this.tableLayoutPanelBtn.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,7 +165,7 @@ namespace DCV_3
         private Panel btnPanel;
         private Panel boardPanel;
         private TextBox logTextBox;
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel tableLayoutPanelBtn;
         private Button btnSetColor;
         private Button btnSetSize;
     }

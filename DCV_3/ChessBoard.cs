@@ -13,6 +13,7 @@ namespace DCV_3
     public partial class ChessBoard : Form
     {
         private Panel[,] panels;
+        private TableLayoutPanel tableLayoutPanelBoard;
 
         public int columns = 12;
         public int rows = 12;
@@ -31,26 +32,20 @@ namespace DCV_3
 
         private void DrawBoard(int columns, int rows, Color color1, Color color2)
         {
-            boardPanel.SuspendLayout();
+            tableLayoutPanelBoard = new TableLayoutPanel{ Dock = DockStyle.Fill, ColumnCount = columns, RowCount = rows };
             boardPanel.Controls.Clear();
+            boardPanel.Controls.Add(tableLayoutPanelBoard);
+            tableLayoutPanelBoard.SuspendLayout();
 
-            const int tileSize = 40;
-
-            // initialize the "chess board"
             panels = new Panel[columns, rows];
 
-            // double for loop to handle all rows and columns
             for (var n = 0; n < columns; n++)
             {
+                tableLayoutPanelBoard.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5));
                 for (var m = 0; m < rows; m++)
                 {
-                    // create new Panel control which will be one 
-                    // chess board tile
-                    var panel = new Panel
-                    {
-                        Size = new Size(tileSize, tileSize),
-                        Location = new Point(tileSize * n, tileSize * m),
-                    };
+                    tableLayoutPanelBoard.RowStyles.Add(new RowStyle(SizeType.Percent, 5));
+                    var panel = new Panel { Dock = DockStyle.Fill };
 
                     var btn = new Button
                     {
@@ -62,20 +57,17 @@ namespace DCV_3
 
                     panel.Controls.Add(btn);
 
-                    // add to Form's Controls so that they show up
-                    boardPanel.Controls.Add(panel);
+                    tableLayoutPanelBoard.Controls.Add(panel, n, m);
 
-                    // add to our 2d array of panels for future use
                     panels[n, m] = panel;
 
-                    // color the backgrounds
                     if (n % 2 == 0)
                         panel.BackColor = m % 2 != 0 ? color2 : color1;
                     else
                         panel.BackColor = m % 2 != 0 ? color1 : color2;
                 }
             }
-            boardPanel.ResumeLayout();
+            tableLayoutPanelBoard.ResumeLayout();
         }
 
         private void ChangeColors(Color color1, Color color2)
