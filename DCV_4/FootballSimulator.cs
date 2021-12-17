@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Timers;
 using System.Windows.Forms;
 
 namespace DCV_4
@@ -18,6 +14,7 @@ namespace DCV_4
         public BindingList<Match> Matches { get; set; }
 
         private static IEnumerable<Match> currentMatches;
+        private static readonly Random random = new();
 
         private static int round = 0;
         private static int time = 0;
@@ -92,6 +89,11 @@ namespace DCV_4
         {
             if (time == 90)
             {
+                if (round == 30)
+                {
+                    timer.Enabled = false;
+                    return;
+                }
                 time = 0;
                 round++;
                 currentMatches = Matches.Where(x => x.Round == round);
@@ -127,18 +129,11 @@ namespace DCV_4
 
             dataGridViewMatches.Update();
             dataGridViewTeams.Update();
-
-            if (round == 30)
-            {
-                timer.Enabled = false;
-            }
         }
 
         private static bool RandomSuccess()
         {
-            Random _rnd = new();
-            return _rnd.NextDouble() < 0.01;
+            return random.NextDouble() < 0.01;
         }
-
     }
 }
