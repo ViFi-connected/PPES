@@ -92,9 +92,10 @@ namespace DCV_2
             this.radioBtn32.Size = new System.Drawing.Size(40, 21);
             this.radioBtn32.TabIndex = 2;
             this.radioBtn32.TabStop = true;
+            this.radioBtn32.Tag = "32";
             this.radioBtn32.Text = "32";
             this.radioBtn32.UseVisualStyleBackColor = true;
-            this.radioBtn32.CheckedChanged += new System.EventHandler(this.radioBtn32_CheckedChanged);
+            this.radioBtn32.CheckedChanged += new System.EventHandler(this.radioBtnCheckedChanged);
             // 
             // radioBtn16
             // 
@@ -105,9 +106,10 @@ namespace DCV_2
             this.radioBtn16.Size = new System.Drawing.Size(40, 21);
             this.radioBtn16.TabIndex = 1;
             this.radioBtn16.TabStop = true;
+            this.radioBtn16.Tag = "16";
             this.radioBtn16.Text = "16";
             this.radioBtn16.UseVisualStyleBackColor = true;
-            this.radioBtn16.CheckedChanged += new System.EventHandler(this.radioBtn16_CheckedChanged);
+            this.radioBtn16.CheckedChanged += new System.EventHandler(this.radioBtnCheckedChanged);
             // 
             // radioBtn8
             // 
@@ -118,9 +120,10 @@ namespace DCV_2
             this.radioBtn8.Size = new System.Drawing.Size(33, 21);
             this.radioBtn8.TabIndex = 0;
             this.radioBtn8.TabStop = true;
+            this.radioBtn8.Tag = "8";
             this.radioBtn8.Text = "8";
             this.radioBtn8.UseVisualStyleBackColor = true;
-            this.radioBtn8.CheckedChanged += new System.EventHandler(this.radioBtn8_CheckedChanged);
+            this.radioBtn8.CheckedChanged += new System.EventHandler(this.radioBtnCheckedChanged);
             // 
             // tableLayoutPanel1
             // 

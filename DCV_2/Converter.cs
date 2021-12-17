@@ -20,38 +20,37 @@ namespace DCV_2
             InitializeComponent();
         }
 
-        #region RadioButtons
-        private void radioBtn8_CheckedChanged(object sender, EventArgs e)
+        #region Buttons
+
+        private void radioBtnCheckedChanged(object sender, EventArgs e)
         {
-            numberOfBits = 8;
+            RadioButton btn = sender as RadioButton;
+            switch (btn.Tag)
+            {
+                case "8":
+                    numberOfBits = 8;
+                    break;
+                case "16":
+                    numberOfBits = 16;
+                    break;
+                case "32":
+                    numberOfBits = 32;
+                    break;
+                default:
+                    break;
+            }
             ParseInput();
             SetCheckboxes();
             SetBits();
         }
-
-        private void radioBtn16_CheckedChanged(object sender, EventArgs e)
-        {
-            numberOfBits = 16;
-            ParseInput();
-            SetCheckboxes();
-            SetBits();
-
-        }
-
-        private void radioBtn32_CheckedChanged(object sender, EventArgs e)
-        {
-            numberOfBits = 32;
-            ParseInput();
-            SetCheckboxes();
-            SetBits();
-        } 
-        #endregion
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             ParseInput();
             SetBits();
         }
+
+        #endregion
 
         private void ParseInput()
         {
@@ -132,7 +131,7 @@ namespace DCV_2
                 }
             }
             textBoxDec.Text = value.ToString();
-            textBoxHex.Text = string.Join(" ", BitConverter.GetBytes(value).Reverse().Select(x => x.ToString("X")));
+            textBoxHex.Text = value.ToString("X");
             textBoxBin.Text = binaryOutput;
         }
 
