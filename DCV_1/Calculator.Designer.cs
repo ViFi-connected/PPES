@@ -123,7 +123,7 @@ namespace DCV_1
             this.b0.TabIndex = 17;
             this.b0.Text = "0";
             this.b0.UseVisualStyleBackColor = true;
-            this.b0.Click += new System.EventHandler(this.B0_Click);
+            this.b0.Click += new System.EventHandler(this.NumberOnClick);
             // 
             // point
             // 
@@ -147,7 +147,7 @@ namespace DCV_1
             this.div.TabIndex = 15;
             this.div.Text = "/";
             this.div.UseVisualStyleBackColor = true;
-            this.div.Click += new System.EventHandler(this.Div_Click);
+            this.div.Click += new System.EventHandler(this.OperationOnClick);
             // 
             // b9
             // 
@@ -159,7 +159,7 @@ namespace DCV_1
             this.b9.TabIndex = 14;
             this.b9.Text = "9";
             this.b9.UseVisualStyleBackColor = true;
-            this.b9.Click += new System.EventHandler(this.B9_Click);
+            this.b9.Click += new System.EventHandler(this.NumberOnClick);
             // 
             // b8
             // 
@@ -171,7 +171,7 @@ namespace DCV_1
             this.b8.TabIndex = 13;
             this.b8.Text = "8";
             this.b8.UseVisualStyleBackColor = true;
-            this.b8.Click += new System.EventHandler(this.B8_Click);
+            this.b8.Click += new System.EventHandler(this.NumberOnClick);
             // 
             // b7
             // 
@@ -183,7 +183,7 @@ namespace DCV_1
             this.b7.TabIndex = 12;
             this.b7.Text = "7";
             this.b7.UseVisualStyleBackColor = true;
-            this.b7.Click += new System.EventHandler(this.B7_Click);
+            this.b7.Click += new System.EventHandler(this.NumberOnClick);
             // 
             // mul
             // 
@@ -195,7 +195,7 @@ namespace DCV_1
             this.mul.TabIndex = 11;
             this.mul.Text = "*";
             this.mul.UseVisualStyleBackColor = true;
-            this.mul.Click += new System.EventHandler(this.Mul_Click);
+            this.mul.Click += new System.EventHandler(this.OperationOnClick);
             // 
             // b6
             // 
@@ -207,7 +207,7 @@ namespace DCV_1
             this.b6.TabIndex = 10;
             this.b6.Text = "6";
             this.b6.UseVisualStyleBackColor = true;
-            this.b6.Click += new System.EventHandler(this.B6_Click);
+            this.b6.Click += new System.EventHandler(this.NumberOnClick);
             // 
             // b5
             // 
@@ -219,7 +219,7 @@ namespace DCV_1
             this.b5.TabIndex = 9;
             this.b5.Text = "5";
             this.b5.UseVisualStyleBackColor = true;
-            this.b5.Click += new System.EventHandler(this.B5_Click);
+            this.b5.Click += new System.EventHandler(this.NumberOnClick);
             // 
             // b4
             // 
@@ -231,7 +231,7 @@ namespace DCV_1
             this.b4.TabIndex = 8;
             this.b4.Text = "4";
             this.b4.UseVisualStyleBackColor = true;
-            this.b4.Click += new System.EventHandler(this.B4_Click);
+            this.b4.Click += new System.EventHandler(this.NumberOnClick);
             // 
             // sub
             // 
@@ -243,7 +243,7 @@ namespace DCV_1
             this.sub.TabIndex = 7;
             this.sub.Text = "-";
             this.sub.UseVisualStyleBackColor = true;
-            this.sub.Click += new System.EventHandler(this.Sub_Click);
+            this.sub.Click += new System.EventHandler(this.OperationOnClick);
             // 
             // b3
             // 
@@ -255,7 +255,7 @@ namespace DCV_1
             this.b3.TabIndex = 6;
             this.b3.Text = "3";
             this.b3.UseVisualStyleBackColor = true;
-            this.b3.Click += new System.EventHandler(this.B3_Click);
+            this.b3.Click += new System.EventHandler(this.NumberOnClick);
             // 
             // b2
             // 
@@ -267,7 +267,7 @@ namespace DCV_1
             this.b2.TabIndex = 5;
             this.b2.Text = "2";
             this.b2.UseVisualStyleBackColor = true;
-            this.b2.Click += new System.EventHandler(this.B2_Click);
+            this.b2.Click += new System.EventHandler(this.NumberOnClick);
             // 
             // b1
             // 
@@ -279,7 +279,7 @@ namespace DCV_1
             this.b1.TabIndex = 4;
             this.b1.Text = "1";
             this.b1.UseVisualStyleBackColor = true;
-            this.b1.Click += new System.EventHandler(this.B1_Click);
+            this.b1.Click += new System.EventHandler(this.NumberOnClick);
             // 
             // add
             // 
@@ -291,7 +291,7 @@ namespace DCV_1
             this.add.TabIndex = 3;
             this.add.Text = "+";
             this.add.UseVisualStyleBackColor = true;
-            this.add.Click += new System.EventHandler(this.Add_Click);
+            this.add.Click += new System.EventHandler(this.OperationOnClick);
             // 
             // clear
             // 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace DCV_1
@@ -7,93 +8,82 @@ namespace DCV_1
     public partial class Calculator : Form
     {
         private bool toggleFlag = true;
+        private bool clearText = false;
+        private double operand, lastOperand;
+        private string operation, lastOperation;
 
         public Calculator()
         {
             InitializeComponent();
         }
 
-        private void B1_Click(object sender, EventArgs e)
+        private void NumberOnClick(object sender, EventArgs e)
         {
-            textBox1.Text += 1;
+            if (clearText)
+            {
+                textBox1.Clear();
+                clearText = false;
+            }
+            Button btn = sender as Button;
+            textBox1.Text += btn.Text;
         }
 
-        private void B2_Click(object sender, EventArgs e)
+        private void OperationOnClick(object sender, EventArgs e)
         {
-            textBox1.Text += 2;
+            Button btn = sender as Button;
+            operation = btn.Text;
+            operand = double.Parse(textBox1.Text, CultureInfo.InvariantCulture);
+
+            if (operation == lastOperation && lastOperation != null)
+            {
+                Compute(operation, operand);
+            }
+            else
+            {
+                lastOperand = operand;
+            }
+            lastOperation = operation;
+            clearText = true;
         }
 
-        private void B3_Click(object sender, EventArgs e)
+        private void Compute(string operation, double operand)
         {
-            textBox1.Text += 3;
-        }
-
-        private void B4_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += 4;
-        }
-
-        private void B5_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += 5;
-        }
-
-        private void B6_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += 6;
-        }
-
-        private void B7_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += 7;
-        }
-
-        private void B8_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += 8;
-        }
-
-        private void B9_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += 9;
-        }
-
-        private void B0_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += 0;
-        }
-        private void Add_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "+";
-        }
-
-        private void Sub_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "-";
-        }
-        private void Mul_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "*";
-        }
-
-        private void Div_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "/";
-
+            double result = 0.0;
+            switch (operation)
+            {
+                case "+":
+                    result = lastOperand + operand;
+                    break;
+                case "-":
+                    result = lastOperand - operand;
+                    break;
+                case "*":
+                    result = lastOperand * operand; 
+                    break;
+                case "/":
+                    result = lastOperand / operand;
+                    break;
+                default:
+                    break;
+            }
+            if (double.IsInfinity(result))
+            {
+                MessageBox.Show("Division by zero not allowed", "Invalid operation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox1.Clear();
+                lastOperand = 0;
+                lastOperation = null;
+            }
+            else
+            {
+                textBox1.Text = result.ToString();
+                lastOperand = result;
+            }
         }
 
         private void Result_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DataTable Calc = new();
-                var ans = Calc.Compute(textBox1.Text, "");
-                textBox1.Text = ans.ToString();
-            }
-            catch (Exception E)
-            {
-                MessageBox.Show(E.Message);
-            }
+            operand = double.Parse(textBox1.Text, CultureInfo.InvariantCulture);
+            Compute(lastOperation, operand);
         }
 
         private void Point_Click(object sender, EventArgs e)
@@ -109,6 +99,9 @@ namespace DCV_1
         private void Clear_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
+            lastOperand = 0;
+            lastOperation = null;
+            
         }
 
         private void Backspace_Click(object sender, EventArgs e)
