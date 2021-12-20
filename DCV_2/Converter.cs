@@ -62,6 +62,7 @@ namespace DCV_2
             {
                 MessageBox.Show("Enter a number from 0 to 4 294 967 295", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            
         }
 
         private void SetCheckboxes()
@@ -130,19 +131,34 @@ namespace DCV_2
                     binaryOutput += " ";
                 }
             }
+            switch (numberOfBits)
+            {
+                case 8:
+                    textBoxHex.Text = Convert.ToString((byte)value, 16);
+                    textBoxBin.Text = Convert.ToString((byte)value, 2);
+                    break;
+                case 16:
+                    textBoxHex.Text = Convert.ToString((ushort)value, 16);
+                    textBoxBin.Text = Convert.ToString((ushort)value, 2);
+                    break;
+                case 32:
+                    textBoxHex.Text = Convert.ToString(value, 16);
+                    textBoxBin.Text = Convert.ToString(value, 2);
+                    break;
+                default:
+                    break;
+            }
             textBoxDec.Text = value.ToString();
-            textBoxHex.Text = value.ToString("X");
-            textBoxBin.Text = binaryOutput;
         }
 
-        private static bool[] ToBinary(uint input, short bits)
+        private static bool[] ToBinary(object input, short bits)
         {
             bool[] binary = new bool[bits];
 
             for (int i = 0; i <= (short)(bits - 1); i++)
             {
                 int mask = 1 << i;
-                binary[i] = (input & mask) != 0;
+                binary[i] = (Convert.ToUInt32(input) & mask) != 0;
             }
 
             return binary;
