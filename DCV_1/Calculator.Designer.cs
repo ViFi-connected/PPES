@@ -31,7 +31,7 @@ namespace DCV_1
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.result = new System.Windows.Forms.Button();
+            this.btnResult = new System.Windows.Forms.Button();
             this.b0 = new System.Windows.Forms.Button();
             this.point = new System.Windows.Forms.Button();
             this.div = new System.Windows.Forms.Button();
@@ -69,7 +69,7 @@ namespace DCV_1
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.result, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.btnResult, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.b0, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.point, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.div, 3, 3);
@@ -100,18 +100,18 @@ namespace DCV_1
             this.tableLayoutPanel1.Size = new System.Drawing.Size(334, 365);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // result
+            // btnResult
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.result, 2);
-            this.result.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.result.Location = new System.Drawing.Point(169, 307);
-            this.result.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
-            this.result.Name = "result";
-            this.result.Size = new System.Drawing.Size(162, 43);
-            this.result.TabIndex = 18;
-            this.result.Text = "=";
-            this.result.UseVisualStyleBackColor = true;
-            this.result.Click += new System.EventHandler(this.Result_Click);
+            this.tableLayoutPanel1.SetColumnSpan(this.btnResult, 2);
+            this.btnResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnResult.Location = new System.Drawing.Point(169, 307);
+            this.btnResult.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
+            this.btnResult.Name = "btnResult";
+            this.btnResult.Size = new System.Drawing.Size(162, 43);
+            this.btnResult.TabIndex = 18;
+            this.btnResult.Text = "=";
+            this.btnResult.UseVisualStyleBackColor = true;
+            this.btnResult.Click += new System.EventHandler(this.Result_Click);
             // 
             // b0
             // 
@@ -351,7 +351,7 @@ namespace DCV_1
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button result;
+        private System.Windows.Forms.Button btnResult;
         private System.Windows.Forms.Button b0;
         private System.Windows.Forms.Button point;
         private System.Windows.Forms.Button div;

@@ -8,8 +8,9 @@ namespace DCV_1
     public partial class Calculator : Form
     {
         private bool toggleFlag = true;
+        private bool parseResult = true;
         private bool clearText = false;
-        private double operand, lastOperand;
+        private double operand, lastOperand, result;
         private string operation, lastOperation;
 
         public Calculator()
@@ -34,34 +35,38 @@ namespace DCV_1
             operation = btn.Text;
             operand = double.Parse(textBox1.Text, CultureInfo.InvariantCulture);
 
-            if (operation == lastOperation && lastOperation != null)
+            if (operation == lastOperation)
             {
                 Compute(operation, operand);
             }
+            else if (lastOperation == null)
+            {
+                result = operand;
+            }
             else
             {
-                lastOperand = operand;
+                Compute(lastOperation, operand);
             }
             lastOperation = operation;
             clearText = true;
+            parseResult = true;
         }
 
         private void Compute(string operation, double operand)
         {
-            double result = 0.0;
             switch (operation)
             {
                 case "+":
-                    result = lastOperand + operand;
+                    result += operand;
                     break;
                 case "-":
-                    result = lastOperand - operand;
+                    result -= operand;
                     break;
                 case "*":
-                    result = lastOperand * operand; 
+                    result *= operand; 
                     break;
                 case "/":
-                    result = lastOperand / operand;
+                    result /= operand;
                     break;
                 default:
                     break;
@@ -76,14 +81,17 @@ namespace DCV_1
             else
             {
                 textBox1.Text = result.ToString();
-                lastOperand = result;
             }
         }
 
         private void Result_Click(object sender, EventArgs e)
         {
-            operand = double.Parse(textBox1.Text, CultureInfo.InvariantCulture);
-            Compute(lastOperation, operand);
+            if (parseResult)
+            {
+                lastOperand = double.Parse(textBox1.Text, CultureInfo.InvariantCulture);
+            }
+            Compute(lastOperation, lastOperand);
+            parseResult = false;
         }
 
         private void Point_Click(object sender, EventArgs e)
@@ -98,21 +106,16 @@ namespace DCV_1
 
         private void Clear_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "";
+            textBox1.Text = "0";
             lastOperand = 0;
             lastOperation = null;
-            
+            clearText = true; 
         }
 
         private void Backspace_Click(object sender, EventArgs e)
         {
-            int length = textBox1.TextLength - 1;
-            string text = textBox1.Text;
-            textBox1.Clear();
-            for (int i = 0; i < length; i++)
-            {
-                textBox1.Text += text[i];
-            }
+            textBox1.Text = textBox1.Text.Substring(0, (textBox1.Text.Length > 0) ?
+            (textBox1.Text.Length - 1) : 0);
         }
 
         private void Toggle_Click(object sender, EventArgs e)
@@ -151,7 +154,7 @@ namespace DCV_1
             point.Enabled = false;
             backspace.Enabled = false;
             clear.Enabled = false;
-            result.Enabled = false;
+            btnResult.Enabled = false;
         }
 
         public void Enable()
@@ -171,7 +174,7 @@ namespace DCV_1
             add.Enabled = true;
             clear.Enabled = true;
             backspace.Enabled = true;
-            result.Enabled = true;
+            btnResult.Enabled = true;
             div.Enabled = true;
             sub.Enabled = true;
             mul.Enabled = true;
